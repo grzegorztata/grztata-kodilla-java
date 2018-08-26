@@ -11,19 +11,18 @@ public class SettingsFileEngineTestSuite {
 
     @BeforeClass
     public static void OpenSettingsFile() {
-        settingsFileEngine = new SettingsFileEngine();
-        settingsFileEngine.open("myapp.settings");
+        settingsFileEngine.getInstance().open("myapp.settings");
     }
     @AfterClass
     public static void closeSettingsFile() {
-        settingsFileEngine.close();
+        settingsFileEngine.getInstance().close();
     }
 
     @Test
     public void testGetFileName() {
         //Given
         //When
-        String fileName = settingsFileEngine.getFileName();
+        String fileName = settingsFileEngine.getInstance().getFileName();
         System.out.println("Opened" + fileName);
         //Then
         Assert.assertEquals("myapp.settings", fileName);
@@ -32,7 +31,7 @@ public class SettingsFileEngineTestSuite {
     public void testLoadSettings() {
         //Given
         //When
-        boolean result = settingsFileEngine.loadSettings();
+        boolean result = settingsFileEngine.getInstance().loadSettings();
         //Then
         Assert.assertTrue(result);
     }
@@ -40,7 +39,7 @@ public class SettingsFileEngineTestSuite {
     public void testSaveSettings() {
         //Given
         //When
-        boolean result = settingsFileEngine.saveSettings();
+        boolean result = settingsFileEngine.getInstance().saveSettings();
         //Then
         Assert.assertTrue(result);
     }
