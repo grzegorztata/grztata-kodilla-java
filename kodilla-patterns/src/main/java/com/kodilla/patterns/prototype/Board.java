@@ -18,9 +18,11 @@ public final class Board extends Prototype {
     public String getName() {
         return name;
     }
+
     public Set<TaskList> getLists() {
         return lists;
     }
+
     @Override
     public String toString() {
         String s = "Board [" + name + "]\n";

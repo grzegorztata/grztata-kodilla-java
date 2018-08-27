@@ -3,11 +3,11 @@ package com.kodilla.patterns.prototype.library;
 import java.time.LocalDate;
 
 public final class Book {
-    final String title;
-    final String author;
-    final LocalDate publicationDate;
+    private final String title;
+    private final String author;
+    private final LocalDate publicationDate;
 
-    public Book(String title, String author, LocalDate publicationDate) {
+    public Book(final String title, final String author, final LocalDate publicationDate) {
         this.title = title;
         this.author = author;
         this.publicationDate = publicationDate;
