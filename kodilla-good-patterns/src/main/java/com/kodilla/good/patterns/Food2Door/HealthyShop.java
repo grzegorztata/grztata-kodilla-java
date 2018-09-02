@@ -1,21 +1,18 @@
 package com.kodilla.good.patterns.Food2Door;
 
+import java.util.Random;
+
 public class HealthyShop implements Contractor {
-    private static String ContractorName = "HealthyShop";
+    private Random random = new Random();
 
+    @Override
     public String getContractorName() {
-        return ContractorName;
+        return "HealthyShop";
     }
 
     @Override
-    public String toString() {
-        return "GlutenFreeShop{" +
-                "ContractorName='" + ContractorName + '\'' +
-                '}';
-    }
-
-    @Override
-    public boolean process(OrderRequest orderRequest) {
+    public boolean process(String product, int quantity) {
+        System.out.println("Your order is ready ");
         return true;
     }
 }

@@ -1,21 +1,15 @@
 package com.kodilla.good.patterns.Food2Door;
 
 public class ExtraFoodShop implements Contractor {
-    private static String ContractorName = "ExtraFoodShop";
 
+    @Override
     public String getContractorName() {
-        return ContractorName;
+        return "ExtraFoodShop";
     }
 
     @Override
-    public String toString() {
-        return "ExtraFoodShop{" +
-                "ContractorName='" + ContractorName + '\'' +
-                '}';
-    }
-
-    @Override
-    public boolean process(OrderRequest orderRequest) {
+    public boolean process(String product, int quantity) {
+        System.out.println("Your order is ready ");
         return true;
     }
 }

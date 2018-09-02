@@ -3,10 +3,10 @@ package com.kodilla.good.patterns.Food2Door;
 public class OrderRequest { //info o dostawcy, produkt, ilość
 
     private Contractor contractor;
-    private Product product;
+    private String product;
     private int quantity;
 
-    public OrderRequest(Contractor contractor, Product product, int quantity) {
+    public OrderRequest(Contractor contractor, String product, int quantity) {
         this.contractor = contractor;
         this.product = product;
         this.quantity = quantity;
@@ -16,7 +16,7 @@ public class OrderRequest { //info o dostawcy, produkt, ilość
         return contractor;
     }
 
-    public Product getProduct() {
+    public String getProduct() {
         return product;
     }
 
