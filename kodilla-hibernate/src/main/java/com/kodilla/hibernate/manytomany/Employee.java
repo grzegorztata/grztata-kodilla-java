@@ -5,6 +5,10 @@ import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
+@NamedQuery(
+        name = "Employee.retrieveEmployeeWithLastnameSame",
+        query = "FROM Employee WHERE lastname = :LASTNAME"
+)
 @Entity
 @Table(name = "EMPLOYEES")
 public class Employee {
@@ -52,6 +56,7 @@ public class Employee {
     private void setLastname(String lastname) {
         this.lastname = lastname;
     }
+
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(
             name = "JOIN_COMPANY_EMPLOYEE",
@@ -61,7 +66,8 @@ public class Employee {
     public List<Company> getCompanies() {
         return companies;
     }
-    private void setCompanies(List<Company> companies) {
+
+    public void setCompanies(List<Company> companies) {
         this.companies = companies;
     }
 }

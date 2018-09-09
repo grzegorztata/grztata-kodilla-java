@@ -17,47 +17,43 @@ import java.math.BigDecimal;
 public class InvoiceDaoTestSuite {
     @Autowired
     InvoiceDao invoiceDao;
-    @Autowired
-    ItemDao itemDao;
-    @Autowired
-    ProductDao productDao;
 
     @Test
-    public void testInvoiceDaoSave(){
+    public void testInvoiceDaoSave() {
+        //Given
+        Product product = new Product("product1");
 
-        Product product1 = new Product("product1");
-        Product product2 = new Product("product2");
-        Product product3 = new Product("product3");
+        Item item = new Item(new BigDecimal(100), 10, new BigDecimal(1000));
+        Item item1 = new Item(new BigDecimal(200), 2, new BigDecimal(4000));
+        Item item2 = new Item(new BigDecimal(300), 3, new BigDecimal(9000));
 
-        productDao.save(product1);
-        productDao.save(product2);
-        productDao.save(product3);
+        Invoice invoice = new Invoice("001");
 
-        Invoice invoice1 = new Invoice("001");
-        Invoice invoice2 = new Invoice("002");
+        product.getItems().add(item);
+        product.getItems().add(item1);
+        product.getItems().add(item2);
 
-        Item item1 = new Item(product1, new BigDecimal(10), 1, new BigDecimal(10));
-        Item item2 = new Item(product2, new BigDecimal(20), 2, new BigDecimal(40));
-        Item item3 = new Item(product3, new BigDecimal(30), 3, new BigDecimal(90));
+        invoice.getItems().add(item);
+        invoice.getItems().add(item1);
+        invoice.getItems().add(item2);
 
-        invoice1.getItems().add(item1);
-        invoice1.getItems().add(item2);
-        invoice1.getItems().add(item3);
+        item.setProduct(product);
+        item1.setProduct(product);
+        item2.setProduct(product);
 
-        item1.setInvoice(invoice1);
-        item2.setInvoice(invoice1);
-        item3.setInvoice(invoice1);
+        item.setInvoice(invoice);
+        item1.setInvoice(invoice);
+        item2.setInvoice(invoice);
 
         //When
-        invoiceDao.save(invoice1);
-        invoiceDao.save(invoice2);
-
+        invoiceDao.save(invoice);
+        int numberId = invoice.getId();
 
         //Then
-        Assert.assertNotEquals(0, invoice1.getItems().size());
-        Assert.assertNotEquals(2, invoiceDao.count());
+        Assert.assertNotEquals(0, numberId);
 
         //CleanUp
+        invoiceDao.delete(numberId);
         try {
             invoiceDao.deleteAll();
         }

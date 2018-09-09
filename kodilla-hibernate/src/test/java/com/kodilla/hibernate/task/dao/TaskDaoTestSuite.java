@@ -23,12 +23,15 @@ public class TaskDaoTestSuite {
     public void testTaskDaoSave() {
         //Given
         Task task = new Task(DESCRIPTION, 7);
+
         //When
         taskDao.save(task);
+
         //Then
         int id = task.getId();
         Task readTask = taskDao.findOne(id);
         Assert.assertEquals(id, readTask.getId());
+
         //CleanUp
         taskDao.delete(id);
     }
@@ -56,13 +59,15 @@ public class TaskDaoTestSuite {
         //Given
         Task task = new Task(DESCRIPTION, 30);
         task.setTaskFinancialDetails(new TaskFinancialDetails(new BigDecimal(120), false));
+
         //When
         taskDao.save(task);
         int id = task.getId();
-        //Then
-        Assert.assertEquals(1, id);
-        //CleanUp
-        //taskDao.delete(id);
-    }
 
+        //Then
+        Assert.assertNotEquals(0, id);
+
+        //CleanUp
+        taskDao.delete(id);
+    }
 }

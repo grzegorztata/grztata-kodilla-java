@@ -22,13 +22,23 @@ public class Invoice {
     @Id
     @GeneratedValue
     @NotNull
-    @Column(name = "INVOICE_ID", unique = true)
+    @Column(name = "ID", unique = true)
     public int getId() {
         return id;
     }
 
-    @Column(name = "INVOICE_NUMBER") public String getNumber() {
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    @NotNull
+    @Column(name = "NUMBER", unique = true)
+    public String getNumber() {
         return number;
+    }
+
+    public void setNumber(String number) {
+        this.number = number;
     }
 
     @OneToMany(
@@ -41,15 +51,7 @@ public class Invoice {
         return items;
     }
 
-    private void setId(int id) {
-        this.id = id;
-    }
-
-    private void setNumber(String number) {
-        this.number = number;
-    }
-
-    private void setItems(List<Item> items) {
+    public void setItems(List<Item> items) {
         this.items = items;
     }
 }
