@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @NamedNativeQuery(
-        name = "Company.retrieveCompanyWithFreeCharSame",
+        name = "Company.retrieveCompanyByNameLetters",
         query = "SELECT * FROM COMPANIES WHERE SUBSTR(COMPANY_NAME, '1', '3') = :COMPANY_NAME",
         resultClass = Company.class
 )

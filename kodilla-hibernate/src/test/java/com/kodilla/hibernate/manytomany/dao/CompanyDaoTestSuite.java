@@ -9,11 +9,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.List;
+
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class CompanyDaoTestSuite {
     @Autowired
     CompanyDao companyDao;
+    EmployeeDao employeeDao;
 
     @Test
     public void testSaveManyToMany(){
@@ -55,6 +58,59 @@ public class CompanyDaoTestSuite {
         try {
             companyDao.delete(softwareMachineId);
             companyDao.delete(dataMaestersId);
+            companyDao.delete(greyMatterId);
+        } catch (Exception e) {
+            //do nothing
+        }
+    }
+
+    @Test
+    public void testCompanyByFirstLetters() {
+        //Given
+        Employee johnSmith = new Employee("John", "Smith");
+        Company softwareMachine = new Company("Software Machine");
+
+        softwareMachine.getEmployees().add(johnSmith);
+        johnSmith.getCompanies().add(softwareMachine);
+
+        companyDao.save(softwareMachine);
+        int softwareMachineId = softwareMachine.getId();
+
+        //When
+        List<Company> retrieveCompanyByFirstLetters = companyDao.retrieveCompanyByNameLetters("Sof");
+
+        //Then
+        Assert.assertEquals("Software Machine", retrieveCompanyByFirstLetters.get(0).getName());
+        Assert.assertNotEquals(0, retrieveCompanyByFirstLetters.size());
+
+        //CleanUp
+        try {
+            companyDao.delete(softwareMachineId);
+        }catch (Exception e) {
+            //do nothing
+        }
+    }
+
+    @Test
+    public void testByLastname() {
+        //Given
+        Employee johnSmith = new Employee("John", "Smith");
+        Company greyMatter = new Company("Grey Matter");
+
+        greyMatter.getEmployees().add(johnSmith);
+        johnSmith.getCompanies().add(greyMatter);
+
+        companyDao.save(greyMatter);
+        int greyMatterId = greyMatter.getId();
+
+        //When
+        List<Employee> retrieveByLastname = employeeDao.retrieveEmployeeByLastname("Smith");
+
+        //Then
+        Assert.assertEquals(1, retrieveByLastname.size());
+
+        //CleanUp
+        try {
             companyDao.delete(greyMatterId);
         } catch (Exception e) {
             //do nothing
