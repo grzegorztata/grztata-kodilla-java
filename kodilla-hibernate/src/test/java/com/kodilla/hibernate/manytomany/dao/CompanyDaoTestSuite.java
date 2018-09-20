@@ -108,7 +108,7 @@ public class CompanyDaoTestSuite {
         List<Employee> retrieveByLastname = employeeDao.retrieveEmployeeByLastname("Smith");
 
         //Then
-        Assert.assertEquals(6, retrieveByLastname.size());
+        Assert.assertEquals(1, retrieveByLastname.size());
 
         //CleanUp
         try {
