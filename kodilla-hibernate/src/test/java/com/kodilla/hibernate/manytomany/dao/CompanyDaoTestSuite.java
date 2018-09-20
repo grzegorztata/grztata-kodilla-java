@@ -16,6 +16,7 @@ import java.util.List;
 public class CompanyDaoTestSuite {
     @Autowired
     CompanyDao companyDao;
+    @Autowired
     EmployeeDao employeeDao;
 
     @Test
@@ -107,7 +108,7 @@ public class CompanyDaoTestSuite {
         List<Employee> retrieveByLastname = employeeDao.retrieveEmployeeByLastname("Smith");
 
         //Then
-        Assert.assertEquals(1, retrieveByLastname.size());
+        Assert.assertEquals(6, retrieveByLastname.size());
 
         //CleanUp
         try {
