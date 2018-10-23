@@ -1,0 +1,7 @@
+1. Stworzyć Bazę 'base' dla aplikacji i klasy Airports(lista lotnisk) i Destinations
+2. Utworzyć klasę z lotniskami -od i -do
+3. Utworzyć nowy folder 'checkandgo' z klasami dot Departures, Arrivals i Przesiadek (użycie streama) + implementacja
+4. Utworzyć folder z klasami dla klienta 'customersService'
+5. Wewnątrz utworzyć klasę CheckingFlights - wyszukiwarkę dla lotów 1. To, 2. From, 3. By.  Klient wybiera rodzaj lotu i lotnisko
+6. Utworzyć wewnątrz 'customersService' klasę z listą lotów dla każdego typu wyszukiwania (np. customersChoice) - klucz, wartość
+7. Stworzenie klasy głównej Application
