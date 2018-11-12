@@ -90,31 +90,6 @@ public class CompanyDaoTestSuite {
         }catch (Exception e) {
             //do nothing
         }
-    }
 
-    @Test
-    public void testByLastname() {
-        //Given
-        Employee johnSmith = new Employee("John", "Smith");
-        Company greyMatter = new Company("Grey Matter");
-
-        greyMatter.getEmployees().add(johnSmith);
-        johnSmith.getCompanies().add(greyMatter);
-
-        companyDao.save(greyMatter);
-        int greyMatterId = greyMatter.getId();
-
-        //When
-        List<Employee> retrieveByLastname = employeeDao.retrieveEmployeeByLastname("Smith");
-
-        //Then
-        Assert.assertEquals(1, retrieveByLastname.size());
-
-        //CleanUp
-        try {
-            companyDao.delete(greyMatterId);
-        } catch (Exception e) {
-            //do nothing
-        }
     }
 }
