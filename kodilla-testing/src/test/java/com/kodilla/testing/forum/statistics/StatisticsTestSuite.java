@@ -123,7 +123,7 @@ public class StatisticsTestSuite {
         statisticsCalculator.calculateAdvStatistics(statisticsMock);
         int usersCount = statisticsCalculator.getUsersCount();
         //Then
-        Assert.assertEquals(99, usersCount); //zostawiam jedno dla oblania testu
+        Assert.assertEquals(100, usersCount);
     }
 }
 

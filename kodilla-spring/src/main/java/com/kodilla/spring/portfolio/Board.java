@@ -2,7 +2,6 @@ package com.kodilla.spring.portfolio;
 
 import org.springframework.stereotype.Component;
 
-@Component
 public final class Board {
 
     private TaskList toDoList;
