@@ -10,12 +10,21 @@ import java.util.Set;
 
 import static org.junit.Assert.assertEquals;
 
+/*
+Arrays.sort(years);
+        if(years.length % 2 == 0) {
+            return years[(int)(years.length / 2 + 0.5)];
+        } else {
+            return years[years.length / 2];
+        }
+*/
+
 public class MedianAdapterTestSuite {
     @Test
     public void publicationYearMedianTest() {
         //Given
         MedianAdapter medianAdapter = new MedianAdapter();
-        Book book1 = new Book("First Author", "First Title", 1992, "111");
+        Book book1 = new Book("First Author", "First Title", 1990, "111");
         Book book2 = new Book("Second Author", "Second Title", 1993, "111");
         Book book3 = new Book("Third Author", "Third Title", 1999, "111");
         Book book4 = new Book("Fourth Author", "Fourth Title", 1990, "111");

@@ -20,7 +20,7 @@ public class Order {
     }
 
     public BigDecimal calculateValue() {
-        BigDecimal sum = BigDecimal.ZERO;
+        BigDecimal sum = BigDecimal.ZERO; //BigDecimal sum = 0; ???
         for (Item item: items) {
             sum = sum.add(productService.getPrice(item.getProductId())
                 .multiply(new BigDecimal(item.getQty())));
