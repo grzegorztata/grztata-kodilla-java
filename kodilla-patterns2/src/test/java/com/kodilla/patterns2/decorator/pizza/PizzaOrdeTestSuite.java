@@ -7,7 +7,9 @@ import com.kodilla.patterns2.decorator.pizza.ingredients.ExtraCheeseDecorator;
 import com.kodilla.patterns2.decorator.pizza.ingredients.ExtraMeatDecorator;
 import com.kodilla.patterns2.decorator.pizza.ingredients.ExtraMushroomsDecorator;
 import com.kodilla.patterns2.decorator.pizza.ingredients.ExtraSauceDecorator;
+import com.kodilla.patterns2.decorator.pizza.service.DividedIntoPartsDecorator;
 import com.kodilla.patterns2.decorator.pizza.service.NightServiceDecorator;
+import javafx.beans.binding.When;
 import org.junit.Test;
 
 import java.math.BigDecimal;
@@ -57,4 +59,20 @@ public class PizzaOrdeTestSuite {
         //Then
         assertEquals("Basic pizza with tomato sauce + extra meat + extra sauce + bottle of Fanta 1L + night service\n(Customer also have a discount Code - 3 PLN)", description);
     }
+/*
+    @Test
+    public void testGetCostWithDiscount() {
+        //Given
+        PizzaOrder theOrder = new BasicPizzaOrder();
+        theOrder = new ExtraMeatDecorator(theOrder);
+        theOrder = new ExtraSauceDecorator(theOrder);
+        theOrder = new ColaDecorator(theOrder);
+        theOrder = new DividedIntoPartsDecorator(theOrder);
+        theOrder = new DiscountCodeDecorator(theOrder);
+        //When
+        BigDecimal theCost = theOrder.getCost();
+        //Then
+        assertEquals(new BigDecimal(19.30), theCost);
+    }
+*/
 }
