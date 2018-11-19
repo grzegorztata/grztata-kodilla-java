@@ -36,7 +36,7 @@ public class MedianAdapterTestSuite {
         //When
         int calculate = medianAdapter.publicationYearMediana(books);
         //Then
-        assertEquals(1990, calculate);
+        assertEquals(1993, calculate);
     }
     @Test
     public void publicationYearMedianTest1() {

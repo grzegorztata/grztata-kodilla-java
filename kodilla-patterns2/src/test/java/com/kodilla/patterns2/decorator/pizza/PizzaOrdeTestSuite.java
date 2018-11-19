@@ -59,8 +59,8 @@ public class PizzaOrdeTestSuite {
         //Then
         assertEquals("Basic pizza with tomato sauce + extra meat + extra sauce + bottle of Fanta 1L + night service\n(Customer also have a discount Code - 3 PLN)", description);
     }
-/*
-    @Test
+
+/*    @Test
     public void testGetCostWithDiscount() {
         //Given
         PizzaOrder theOrder = new BasicPizzaOrder();
