@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.kodilla.patterns.factory.ShapeFactoryTestSuite" tests="3" skipped="0" failures="0" errors="0" timestamp="2018-11-12T16:44:05" hostname="Grzegorz" time="0.005">
+<testsuite name="com.kodilla.patterns.factory.ShapeFactoryTestSuite" tests="3" skipped="0" failures="0" errors="0" timestamp="2018-12-05T00:14:02" hostname="Grzegorz" time="0.005">
   <properties/>
-  <testcase name="testFactoryCircle" classname="com.kodilla.patterns.factory.ShapeFactoryTestSuite" time="0.003"/>
+  <testcase name="testFactoryCircle" classname="com.kodilla.patterns.factory.ShapeFactoryTestSuite" time="0.002"/>
   <testcase name="testFactorySquare" classname="com.kodilla.patterns.factory.ShapeFactoryTestSuite" time="0.001"/>
   <testcase name="testFactoryRectangle" classname="com.kodilla.patterns.factory.ShapeFactoryTestSuite" time="0.001"/>
   <system-out><![CDATA[]]></system-out>

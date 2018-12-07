@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.kodilla.patterns.prototype.library.LibraryTestSuite" tests="1" skipped="0" failures="0" errors="0" timestamp="2018-11-12T16:44:05" hostname="Grzegorz" time="0.012">
+<testsuite name="com.kodilla.patterns.prototype.library.LibraryTestSuite" tests="1" skipped="0" failures="0" errors="0" timestamp="2018-12-05T00:14:02" hostname="Grzegorz" time="0.011">
   <properties/>
-  <testcase name="testGetBooks" classname="com.kodilla.patterns.prototype.library.LibraryTestSuite" time="0.012"/>
+  <testcase name="testGetBooks" classname="com.kodilla.patterns.prototype.library.LibraryTestSuite" time="0.011"/>
   <system-out><![CDATA[Library [4-Books Library]
-Book{title='Title 3', author='Author 3', publicationDate=2018-11-12}
-Book{title='Title 1', author='Author 1', publicationDate=2018-11-12}
-Book{title='Title 2', author='Author 2', publicationDate=2018-11-12}
-Book{title='Title 4', author='Author 4', publicationDate=2018-11-12}
+Book{title='Title 3', author='Author 3', publicationDate=2018-12-05}
+Book{title='Title 1', author='Author 1', publicationDate=2018-12-05}
+Book{title='Title 2', author='Author 2', publicationDate=2018-12-05}
+Book{title='Title 4', author='Author 4', publicationDate=2018-12-05}
 
 Library [New 4-Books Library (shallow)]
-Book{title='Title 3', author='Author 3', publicationDate=2018-11-12}
-Book{title='Title 1', author='Author 1', publicationDate=2018-11-12}
-Book{title='Title 2', author='Author 2', publicationDate=2018-11-12}
-Book{title='Title 4', author='Author 4', publicationDate=2018-11-12}
+Book{title='Title 3', author='Author 3', publicationDate=2018-12-05}
+Book{title='Title 1', author='Author 1', publicationDate=2018-12-05}
+Book{title='Title 2', author='Author 2', publicationDate=2018-12-05}
+Book{title='Title 4', author='Author 4', publicationDate=2018-12-05}
 
 Library [3 Books Library (deep)]
-Book{title='Title 3', author='Author 3', publicationDate=2018-11-12}
-Book{title='Title 1', author='Author 1', publicationDate=2018-11-12}
-Book{title='Title 2', author='Author 2', publicationDate=2018-11-12}
+Book{title='Title 3', author='Author 3', publicationDate=2018-12-05}
+Book{title='Title 1', author='Author 1', publicationDate=2018-12-05}
+Book{title='Title 2', author='Author 2', publicationDate=2018-12-05}
 
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
