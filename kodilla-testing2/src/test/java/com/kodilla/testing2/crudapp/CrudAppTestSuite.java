@@ -37,6 +37,7 @@ public class CrudAppTestSuite {
         System.out.println(taskName);
         sendTestTaskToTrello(taskName);
         assertTrue(checkTaskExistsInTrello(taskName));
+        shouldDeleteTrelloCard(taskName);
     }
 
     private String createCrudAppTestTask() throws InterruptedException {
@@ -73,7 +74,7 @@ public class CrudAppTestSuite {
                     WebElement createCardButton = theForm.findElement(By.xpath(".//button[contains(@class, \"card-creation\")]"));
                     createCardButton.click();
                 });
-        Thread.sleep(5000);
+        Thread.sleep(2000);
     }
 
     // CZY TRELLO ZOSTAŁODODANE
@@ -81,36 +82,47 @@ public class CrudAppTestSuite {
     private boolean checkTaskExistsInTrello(String taskName) throws InterruptedException {
         final String TRELLO_URL="https://trello.com/login";
         boolean result = false;
-        WebDriver driverTrello = WebDriverConfig.getDriver(WebDriverConfig.FIREFOX);
+        WebDriver driverTrello = WebDriverConfig.getDriver(WebDriverConfig.CHROME);
         driverTrello.get(TRELLO_URL);
 
         driverTrello.findElement(By.id("user")).sendKeys("grzegorz.tata@gmail.com");
-        driverTrello.findElement(By.id("password")).sendKeys("hasło");
+        driverTrello.findElement(By.id("password")).sendKeys("password");
         driverTrello.findElement(By.id("login")).submit();
 
         Thread.sleep(2000);
 
-        driver.get("https://trello.com/b/zAIxpg8a/kodilla-application");
+/*        driver.get("https://trello.com/b/zAIxpg8a/kodilla-application"); */
 
-/*        driverTrello.findElements(By.xpath("//a[@class=\"board-tile\"]")).stream()
+        driverTrello.findElements(By.xpath("//a[@class=\"board-tile\"]")).stream()
                 .filter(aHref -> aHref.findElements(By.xpath(".//div[@title=\"Kodilla Application\"]")).size() > 0)
                 .forEach(aHref -> aHref.click());
-        Thread.sleep(5000);*/
-
-        https://trello.com/b/zAIxpg8a/kodilla-application
+        Thread.sleep(2000);
 
         result = driverTrello.findElements(By.xpath("//span")).stream()
-                .filter(theSpan->theSpan.getText().contains(taskName))
+                .filter(theSpan -> theSpan.getText().contains(taskName))
                 .collect(Collectors.toList())
-                .size()>0;
+                .size() > 0;
 
         driverTrello.close();
 
         return result;
     }
 
+    public void shouldDeleteTrelloCard(String taskName) throws InterruptedException {
+        driver = WebDriverConfig.getDriver(WebDriverConfig.CHROME);
+        driver.get(BASE_URL);
 
+        while (!driver.findElement(By.xpath("//select[1]")).isDisplayed()) ;
 
+        driver.findElements(By.xpath("//form[@class=\"datatable__row\"]")).stream()
+                .filter(anyForm ->
+                        anyForm.findElement(By.xpath(".//p[@class=\"datatable__field-value\"]"))
+                                .getText().equals(taskName))
+                .forEach(theForm -> {
+                    WebElement removeTask = theForm.findElement(By.xpath(".//button[contains(text(), \"Delete\")]"));
+                    removeTask.click();
+                });
+        Thread.sleep(2000);
 
-
+    }
 }
