@@ -5,10 +5,19 @@ import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
+@NamedQueries({
+
 @NamedQuery(
         name = "Employee.retrieveEmployeeByLastname",
         query = "FROM Employee WHERE lastname = :LASTNAME"
-)
+        ),
+
+@NamedQuery( //NamedQuery - Facade
+        name = "Employee.retrieveEmployeeByPartOfName",
+        query = "FROM Employee WHERE lastname LIKE CONCAT('%',:LASTNAME,'%')"
+        )
+})
+
 @Entity
 @Table(name = "EMPLOYEES")
 public class Employee {
